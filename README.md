@@ -34,11 +34,10 @@ The following example sends GET request to `http://json-server:3000/comments` wi
 
 ### 1.2. Request
 
-#### url
-There is nothing special on url.
+Except for `url`, other settings are optional.
 
-#### params (optional)
-This framework generates multiple test cases with all possible sets of parameters when you put arrays of values into parameters. It will let you know which parameter set fails a test if any. For example, the following parameters generate 27 test cases:
+#### params
+This framework generates multiple test cases with all possible sets of parameters when you put arrays of parameter values. It will let you know which parameter set fails a test if any. For example, the following parameters generate 27 test cases:
 ```json
 "params": {
   "param_1": [1, 2, 3],
@@ -47,4 +46,13 @@ This framework generates multiple test cases with all possible sets of parameter
 }
 ```
 
+#### timeout
+Request's timeout in seconds. Its default value is 10 (seconds).
+
+### 1.3. Response
+
+#### statusCode
+The expected status code. If you put an array of status codes, a test will be passed when the received status code is one of them. For example, `[200, 201]` will pass a test if the received status code is either `200` or `201`.
+
+#### jsonSchema
 (TBD)
