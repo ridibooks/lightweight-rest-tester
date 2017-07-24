@@ -49,12 +49,17 @@ This framework generates multiple test cases with all possible sets of parameter
 #### timeout
 Request's timeout in seconds. Its default value is 10 (seconds).
 
-### 3. Response
+## 3. Response
 
 The `response` part validates the received status code (`statusCode`) and JSON by JSON Schema (`jsonSchema`). They are all optional. However, you should put at least one of them.
 
 #### statusCode
-The expected status code. If you put an array of status codes, a test will be passed when one of these codes is received. For example, `[200, 201]` will pass a test if the received status code is either `200` or `201`.
+The expected status code. If you put an array of status codes, a test will be passed when one of these codes is received. For example, the following `statusCode` will pass a test if the received status code is either `200` or `201`:
+```json
+"response": {
+  "statusCode": [200, 201]
+}
+```
 
 #### jsonSchema
 This framework uses [jsonschema](https://github.com/Julian/jsonschema) to validate the received JSON. `jsonschema` fully supports the [Draft 3](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft3Validator>) and [Draft 4](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft4Validator) of JSON Schema.
