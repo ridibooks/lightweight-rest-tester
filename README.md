@@ -65,4 +65,13 @@ The expected status code. If you put an array of status codes, a test will be pa
 #### jsonSchema
 This framework uses [jsonschema](https://github.com/Julian/jsonschema) to validate the received JSON. `jsonschema` fully supports the [Draft 3](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft3Validator) and [Draft 4](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft4Validator) of JSON Schema.
 
+## 4. Write-and-Read Test
+
+This framework support *Write-and-Read* test scenarios that have particular test-execution-order like *PUT-and-GET*. To use this feature, just put two HTTP methods in one JSON file and fill the necessary information for each method. You can find an example of *PUT-and-GET* in [here](https://github.com/ridibooks/lightweight-rest-tester/blob/dev/readme/init/test/function/resources/test_function_write_put.json).
+
+You can build four types of *Write-and-Read* tests:
+*POST-and-GET*, *PUT-and-GET*, *UPDATE-and-GET* and *DELETE-and-GET*.
+
+Unlike single method test, *Write-and-Read* test builds always one test case to preserve test-execution order.
+
 (TBD)
