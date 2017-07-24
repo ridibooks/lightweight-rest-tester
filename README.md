@@ -22,6 +22,7 @@ The following example sends GET request to `http://json-server:3000/comments` wi
       },
       "timeout" : 10
     },
+    
     "response": {
       "statusCode": 200,
       "jsonSchema": {
@@ -62,6 +63,6 @@ The expected status code. If you put an array of status codes, a test will be pa
 ```
 
 #### jsonSchema
-This framework uses [jsonschema](https://github.com/Julian/jsonschema) to validate the received JSON. `jsonschema` fully supports the [Draft 3](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft3Validator>) and [Draft 4](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft4Validator) of JSON Schema.
+This framework uses [jsonschema](https://github.com/Julian/jsonschema) to validate the received JSON. `jsonschema` fully supports the [Draft 3](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft3Validator) and [Draft 4](https://python-jsonschema.readthedocs.io/en/latest/validate/#jsonschema.Draft4Validator) of JSON Schema.
 
 (TBD)
