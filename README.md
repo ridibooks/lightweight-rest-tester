@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ridibooks/lightweight-rest-tester/badge.svg?branch=HEAD)](https://coveralls.io/github/ridibooks/lightweight-rest-tester?branch=HEAD)
 
 # lightweight-rest-tester
-A lightweight REST API testing framework (supporting Python 3.4+). It reads test cases from JSON files, and then dynamically generates and executes unittest of Python. It supports five HTTP methods, *GET*, *POST*, *PUT*, *UPDATE* and *DELETE*.
+A lightweight REST API testing framework (working with Python 2.7+). It reads test cases from JSON files, and then generates and executes unittest of Python. It supports five HTTP methods, *GET*, *POST*, *PUT*, *UPDATE* and *DELETE*.
 
 ## 1. Getting Started
 Write your test cases into JSON files and pass their locations (directory) as the argument:
