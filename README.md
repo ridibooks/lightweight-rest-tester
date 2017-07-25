@@ -86,4 +86,21 @@ Unlike single-method test, *Write-and-Read* test builds always one test case to 
 
 ## 5. Test Case Name
 
-(TBD)
+We use [URL query string format](https://en.wikipedia.org/wiki/Query_string) to make test case name. However, it starts with JSON file name instead of `url`. It helps you understand which parameter-set fails a test if exists. For example, `json_file.json?postId=1&id=2` is the name of the following test case:
+
+```json
+"request": {
+  "url": "http://json-server:3000/comments",
+  "params": {
+    "postId": 1,
+    "id": 2
+  },
+  "timeout" : 10
+}
+```
+
+Unlike single-method test, *Write-and-Read* test uses only JSON file name when making its name.
+
+## 6. Contributions to This Project
+
+Please feel free to leave your suggestions or make PRs.
