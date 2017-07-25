@@ -2,10 +2,18 @@
 [![Coverage Status](https://coveralls.io/repos/github/ridibooks/lightweight-rest-tester/badge.svg?branch=HEAD)](https://coveralls.io/github/ridibooks/lightweight-rest-tester?branch=HEAD)
 
 # lightweight-rest-tester
-A lightweight REST API testing framework. It reads test cases from JSON files, and then dynamically generates and executes unittest of Python. It supports five HTTP methods, *GET*, *POST*, *PUT*, *UPDATE* and *DELETE*.
+A lightweight REST API testing framework (supporting Python 3.4+). It reads test cases from JSON files, and then dynamically generates and executes unittest of Python. It supports five HTTP methods, *GET*, *POST*, *PUT*, *UPDATE* and *DELETE*.
 
 ## 1. Getting Started
-Write your test cases into JSON files and pass their locations as the argument.
+Write your test cases into JSON files and pass their locations (directory) as the argument:
+```
+python rest_tester/main.py "JSON file directory"
+```
+
+If your python cannot identify the `rest_tester` module, then set the python path:
+```
+export PYTHONPATH=.
+```
 
 ### JSON File Format
 Put HTTP method as a top-level entry, and then specify what you *request* and how you verify its *response*. In the `request` part, you can set the target REST API by URL (`url`) with parameters (`params`) and timeout (`timeout`) in seconds. In the `response` part, you can add two types of test cases, HTTP status code (`statusCode`) and [JSON Schema](http://json-schema.org) (`jsonSchema`).
@@ -57,9 +65,7 @@ The `response` part validates the received status code (`statusCode`) and JSON b
 #### statusCode
 The expected status code. When an array of status codes is given, a test checks if one of these codes is received. For example, the following `statusCode` checks if the received status code is either `200` or `201`:
 ```json
-"response": {
-  "statusCode": [200, 201]
-}
+"statusCode": [200, 201]
 ```
 
 #### jsonSchema
@@ -70,7 +76,11 @@ This framework uses [jsonschema](https://github.com/Julian/jsonschema) to valida
 Sometimes, it is necessary to check if some modifications on a database work correctly. We call such test scenario as *Write-and-Read* test that has a particular test-execution-order like *PUT-and-GET*. This framework supports this feature. To use it, just put two HTTP methods in one JSON file and fill the information for each method. You can find an example of *PUT-and-GET* in [here](https://github.com/ridibooks/lightweight-rest-tester/blob/dev/readme/init/test/function/resources/test_function_write_put.json).
 
 You can build the four types of *Write-and-Read* test:
-*POST-and-GET*, *PUT-and-GET*, *UPDATE-and-GET* and *DELETE-and-GET*.
+
+- *POST-and-GET*
+- *PUT-and-GET*
+- *UPDATE-and-GET*
+- *DELETE-and-GET*
 
 Unlike single-method test, *Write-and-Read* test builds always one test case to preserve test-execution order. Even when arrays of parameter values are given, all the test cases belonging to *write* method (e.g., *PUT*) are executed first and then the test cases of *read* method (e.g., *GET*) are executed.
 
