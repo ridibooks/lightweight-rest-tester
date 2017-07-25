@@ -67,11 +67,13 @@ This framework uses [jsonschema](https://github.com/Julian/jsonschema) to valida
 
 ## 4. Write-and-Read Test
 
-This framework support *Write-and-Read* test scenarios that have particular test-execution-order like *PUT-and-GET*. To use this feature, just put two HTTP methods in one JSON file and fill the necessary information for each method. You can find an example of *PUT-and-GET* in [here](https://github.com/ridibooks/lightweight-rest-tester/blob/dev/readme/init/test/function/resources/test_function_write_put.json).
+Sometimes, it is necessary to check if some modifications on a database work correctly. We call such test scenario as *Write-and-Read* test that has a particular test-execution-order like *PUT-and-GET*. This framework supports this feature. To use it, just put two HTTP methods in one JSON file and fill the information for each method. You can find an example of *PUT-and-GET* in [here](https://github.com/ridibooks/lightweight-rest-tester/blob/dev/readme/init/test/function/resources/test_function_write_put.json).
 
-You can build four types of *Write-and-Read* tests:
+You can build the four types of *Write-and-Read* test:
 *POST-and-GET*, *PUT-and-GET*, *UPDATE-and-GET* and *DELETE-and-GET*.
 
-Unlike single method test, *Write-and-Read* test builds always one test case to preserve test-execution order.
+Unlike single-method test, *Write-and-Read* test builds always one test case to preserve test-execution order. Even when arrays of parameter values are given, all the test cases belonging to *write* method (e.g., *PUT*) are executed first and then the test cases of *read* method (e.g., *GET*) are executed.
+
+## 5. Test Case Name
 
 (TBD)
