@@ -38,12 +38,12 @@ The following example sends GET request to `http://json-server:3000/comments` wi
 The `request` part consists of `url`, `params` and `timeout`. Except for `url`, they are optional.
 
 #### params
-This framework generates multiple test cases with all possible sets of parameters when you put arrays of parameter values. It will let you know which parameter set fails a test if any. For example, the following parameters generate 27 test cases:
+When parameter values are given as an array, multiple test cases with all possible parameter-sets are generated. They will show which parameter-set fails a test if exists. For example, the following parameters generate 9 test cases (e.g., `{"p1": 1, "p2": "abc", "p3": "def"}`):
 ```json
 "params": {
-  "param_1": [1, 2, 3],
-  "param_2": ["a", "b", "c"],
-  "param_3": ["def", "efg", "hij"]
+  "p1": [1, 2, 3],
+  "p2": "abc",
+  "p3": ["def", "efg", "hij"]
 }
 ```
 
@@ -52,10 +52,10 @@ Request's timeout in seconds. Its default value is 10 (seconds).
 
 ## 3. Response
 
-The `response` part validates the received status code (`statusCode`) and JSON by JSON Schema (`jsonSchema`). They are all optional. However, you should put at least one of them.
+The `response` part validates the received status code (`statusCode`) and JSON by JSON Schema (`jsonSchema`). They are all optional, but at least one of them should be provided.
 
 #### statusCode
-The expected status code. If you put an array of status codes, a test will be passed when one of these codes is received. For example, the following `statusCode` will pass a test if the received status code is either `200` or `201`:
+The expected status code. When an array of status codes is given, a test checks if one of these codes is received. For example, the following `statusCode` checks if the received status code is either `200` or `201`:
 ```json
 "response": {
   "statusCode": [200, 201]
