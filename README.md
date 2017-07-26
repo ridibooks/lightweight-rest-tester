@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ridibooks/lightweight-rest-tester/badge.svg?branch=HEAD)](https://coveralls.io/github/ridibooks/lightweight-rest-tester?branch=HEAD)
 
 # lightweight-rest-tester
-A lightweight REST API testing framework written in Python (working with 2.7 ~ 3.6). It reads test cases from JSON files and then generates and executes unittest of Python. It supports five HTTP methods, *GET*, *POST*, *PUT*, *PATCH* and *DELETE*.
+A lightweight REST API testing framework written in Python (working with 2.7 ~ 3.6). It reads [JSON Schema](http://json-schema.org) test-cases from JSON files and then generates and executes unittest of Python. 
 
 ## 1. Getting Started
 Write your test cases into JSON files and pass their locations (directory) as the argument:
@@ -16,7 +16,7 @@ export PYTHONPATH=.
 ```
 
 ### JSON File Format
-Put HTTP method as a top-level entry, and then specify what you *request* and how you verify its *response*. In the `request` part, you can set the target REST API by URL (`url`) with parameters (`params`) and timeout (`timeout`) in seconds. In the `response` part, you can add two types of test cases, HTTP status code (`statusCode`) and [JSON Schema](http://json-schema.org) (`jsonSchema`).
+Put HTTP method as a top-level entry, and then specify what you *request* and how you verify its *response*. It supports five HTTP methods, *GET*, *POST*, *PUT*, *PATCH* and *DELETE*. In the `request` part, you can set the target REST API by URL (`url`) with parameters (`params`) and timeout (`timeout`) in seconds. In the `response` part, you can add two types of test cases, HTTP status code (`statusCode`) and [JSON Schema](http://json-schema.org) (`jsonSchema`).
 
 The following example sends GET request to `http://json-server:3000/comments` with the `postId=1` parameter and `10` seconds timeout. When receiving the response, it checks if the status code is `200` and the returned JSON satisfies JSON Schema:
 
