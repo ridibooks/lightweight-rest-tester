@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ridibooks/lightweight-rest-tester/badge.svg?branch=HEAD)](https://coveralls.io/github/ridibooks/lightweight-rest-tester?branch=HEAD)
 
 # lightweight-rest-tester
-A lightweight REST API testing framework written in Python (working with 2.7 ~ 3.6). It reads test cases from JSON files and then generates and executes unittest of Python. It supports five HTTP methods, *GET*, *POST*, *PUT*, *UPDATE* and *DELETE*.
+A lightweight REST API testing framework written in Python (working with 2.7 ~ 3.6). It reads test cases from JSON files and then generates and executes unittest of Python. It supports five HTTP methods, *GET*, *POST*, *PUT*, *PATCH* and *DELETE*.
 
 ## 1. Getting Started
 Write your test cases into JSON files and pass their locations (directory) as the argument:
@@ -81,7 +81,7 @@ You can build the four types of *Write-and-Read* test:
 
 - *POST-and-GET*
 - *PUT-and-GET*
-- *UPDATE-and-GET*
+- *PATCH-and-GET*
 - *DELETE-and-GET*
 
 Unlike the single-method test, *Write-and-Read* test builds always one test case to preserve test-execution order. Even when arrays of parameter values are given, all the test cases belonging to *Write* method (e.g., *PUT*) are executed first and then the test cases of *Read* method (e.g., *GET*) are executed.
